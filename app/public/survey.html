@@ -35,7 +35,7 @@
         <div class="questions-area">
             <div id="questions">Question 1</div>
             <p>You Are Patient.</p>
-            <select class="select-input" id="q1">
+            <select data-placeholder="" class="select-input" id="q1">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -46,7 +46,7 @@
 
             <div id="questions">Question 2</div>
             <p>Often, it is hard for you to make decision.</p>
-            <select class="select-input" id="q2">
+            <select data-placeholder="" class="select-input" id="q2">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -56,7 +56,7 @@
             </select>
             <div id="questions">Question 3</div>
             <p>Rather than going out, you prefer to stay home most of the time.</p>
-            <select class="select-input" id="q3">
+            <select data-placeholder="" class="select-input" id="q3">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -66,7 +66,7 @@
             </select>
             <div id="questions">Question 4</div>
             <p>You prefer listening over reading.</p>
-            <select class="select-input" id="q4">
+            <select data-placeholder="" class="select-input" id="q4">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -76,7 +76,7 @@
             </select>
             <div id="questions">Question 5</div>
             <p>You are outgoing.</p>
-            <select class="select-input" id="q5">
+            <select data-placeholder="" class="select-input" id="q5">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -86,7 +86,7 @@
             </select>
             <div id="questions">Question 6</div>
             <p>You love animals.</p>
-            <select class="select-input" id="q6">
+            <select data-placeholder="" class="select-input" id="q6">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -97,7 +97,7 @@
 
             <div id="questions">Question 7</div>
             <p>It is difficult for you to relate to other people's feelings.</p>
-            <select class="select-input" id="q7">
+            <select data-placeholder="" class="select-input" id="q7">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -107,7 +107,7 @@
             </select>
             <div id="questions">Question 8</div>
             <p>Truth should be more important than people's feelings.</p>
-            <select class="select-input" id="q8">
+            <select data-placeholder="" class="select-input" id="q8">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -117,7 +117,7 @@
             </select>
             <div id="questions">Question 9</div>
             <p>It is difficult for you to focus with noise.</p>
-            <select class="select-input" id="q9">
+            <select data-placeholder="" class="select-input" id="q9">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -127,7 +127,7 @@
             </select>
             <div id="questions">Question 10</div>
             <p>You tend to rely more on your imagination than your experience.</p>
-            <select class="select-input" id="q10">
+            <select data-placeholder="" class="select-input" id="q10">
                 <option value></option>
                 <option value="1">1 (stongly disagree)</option>
                 <option value="2">2</option>
@@ -142,31 +142,33 @@
         <button id="submit-btn">Submit</button>
         <hr>
 
-        <Footer>API Friends List | GitHub Repo</Footer>
-        <!-- Modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-        </button>
+        <footer>
+            <div class="footer-links">
+                <a href="/api/friends">API List</a>
+                <a href="https://github.com/kyang0626/FriendFinder"> | GitHub Repo</a>
+            </div>
+        </footer>
 
         <!-- Modal -->
-        <div id="modal-match">
+        <div id="modal-match" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    <div class="modal-body">
-                        <h2 id="matchName">Best Match</h2>
-                        <img id="matching" src="http://via.placeholder.com/400x400" alt="placeholder-img"/>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">Your Best Match</h1>
                     </div>
+                    <div class="modal-body">
+                        <h2 id="bestMatch"></h2>
+                        <img id="bestMatchPhoto" src="#">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </main>
 
     <!-- JavaScript Source-->
@@ -179,23 +181,15 @@
         })
 
         // Validate the form....
-        function validateForm() {
-            var formValid = true;
-            $(".form-control").each(function () {
-                if ($(this).val() == "") {
-                    formValid = false;
-                }
-            });
-
-            $(".select-input").each(function () {
-                if ($(this).val() == "") {
-                    formValid = false;
-                }
-            });
-            return formValid;
+        var validateForm = true;
+        if ($("#name").val() === "" || $("#photo").val() === "") {
+            valid = false;
+        } else if ($("#q1").val() === "empty" || $("#q2").val() === "empty" || $("#q3").val() === "empty" || $("#q4").val() === "empty" || $("#q5").val() === "empty" || $("#q6").val() === "empty" || $("#q7").val() === "empty" || $("#q8").val() === "empty" || $("#q9").val() === "empty" || $("#q10").val() === "empty") {
+            valid = false;
         }
+
         // Make sure all the fields are filled
-        if (formValid() === true) {
+        if (validateForm === true) {
             // User Info ...
             var friendData = {
                 name: $("#name").val(),
@@ -216,13 +210,12 @@
 
             var userURL = window.location.origin;
             // AJAX post the data to friends API...
-            $.post(userURL + "/api/friends", userData, function (data) {
+            $.post(userURL + "/api/friends", friendData, function (data) {
 
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.photo);
-
+                // show the modal
                 $("#modal-match").modal("toggle");
-
             });
         } else {
             // Alert user if one or more input is not filled....
@@ -230,12 +223,6 @@
         }
 
     </script>
-
-
-
-
-
-
 
 
 

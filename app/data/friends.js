@@ -1,6 +1,3 @@
-var app = require("express");
-var PORT = 3000;
-
 var friends = [
     {
         name: "John Snow",
