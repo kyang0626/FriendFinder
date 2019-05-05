@@ -1,0 +1,27 @@
+var express = require("express");
+var path = require("path");
+var bodyParser = require("body-parser");
+
+var PORT = process.env.PORT || 3000;
+var app = express();
+
+//PARSE data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.text());
+
+app.use(express.static("app/public"));
+
+// this part not working 
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "app/public/home.html"));
+});
+app.get("/survey", function (req, res) {
+    res.sendFile(path.join(__dirname, "app/public/survey.html"));
+});
+
+
+
+app.listen(PORT, () =>
+    console.log("App is listening on PORT: " + PORT)
+);

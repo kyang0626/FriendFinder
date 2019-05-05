@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Frindly</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FontAwesomeIcons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" type="text/css" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserra|LATO|Noto+Serif:400,700" type="text/css" rel="stylesheet">
+    <!-- CSS StyleSheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" charset="utf8" />
+    <!-- JQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+</head>
+
+<body>
+
+   
+    <div class="area1">
+            <div class="nav">
+                <a class=navbar-brand href="http://localhost:3000"><i class="fas fa-user-friends"></i> Frindly</a>
+            </div>
+        <div class="img-text">
+            <header><span id="page-brand">Frindly</span></header>
+            <div class="header-tag">A place where you can find and connect with people like you.....</div>
+        </div>
+    </div>
+
+    <div class="area2">
+        <div class="intro">
+            <hr>
+            <p id="intro">Let's Find Your Best Match.</p>
+            <p id="intro">Before We Begin. Take the Survey Below.</p>
+        </div>
+
+    </div>
+
+
+    <button id="surveyBtn">Take the Survey</a></button>
+    
+
+    <!-- JavaScript-->
+    <script type="text/javascript">
+        // survey button
+        $("#surveyBtn").on("click", function () {
+
+            location.replace("http://localhost:3000/survey") // Testing // Change to SERVER when complete
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

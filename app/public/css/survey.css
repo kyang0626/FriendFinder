@@ -1,0 +1,68 @@
+body {
+    background: gray;
+}
+main {
+    
+    margin: 40px;
+    background: white;
+    padding: 0px 20px;
+}
+header {
+    font-size: 40px;
+    margin: 10px 0px 0px 20px;
+    padding: 10px 0px 40px 0px;
+    text-align: center;
+
+}
+
+h2 {
+    margin: 0px 0px 0px 20px;
+    padding: 0px 0px 20px 0px;
+}
+
+.user-area {
+    margin: 0px 0px 0px 30px;
+    padding: 0px 0px 10px 0px;
+    font-size: 20px;
+}
+hr {
+    width: 90%;
+}
+.form-control {
+    width: 80%;
+    margin: 0px 0px 10px 20px;
+}
+
+.questions-area {
+    margin: 0px 0px 0px 30px;
+}
+#questions {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 20px 0px 10px 0px;
+}
+
+#submit-btn {
+    width: 80%;
+    text-align: center;
+    margin: 0px 0px 10px 10%;
+    background: #337ab7;
+    color: white;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 8px; 
+}
+
+footer {
+    padding: 10px 10px 10px 40px;
+}
+
+select {
+    width: 30%;
+    height: 30px;
+}
+
+p {
+    margin: 0px;
+}
+
