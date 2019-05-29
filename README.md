@@ -9,7 +9,7 @@
 * App Link: https://radiant-mountain-17853.herokuapp.com/
 
 ### How App Works
-![Alt Text](/public/images/result-gif.gif)
+![Alt Text](/app/public/images/result-gif.gif)
 
 
 ### Technologies Used
