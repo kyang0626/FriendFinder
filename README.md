@@ -6,9 +6,11 @@
 
 ### Links
 
-* App Link
+* App Link: https://radiant-mountain-17853.herokuapp.com/
 
-#### https://radiant-mountain-17853.herokuapp.com/
+### How App Works
+![Alt Text](/public/images/result-gif.)
+
 
 ### Technologies Used
 
