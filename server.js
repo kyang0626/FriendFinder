@@ -1,4 +1,3 @@
-// INCOMPLETE // -------- App is not define ------------
 
 var express = require("express");
 var path = require("path");
@@ -19,7 +18,7 @@ app.use(express.static("app/public"));
 
 // Router
 require("./app/routing/apiRoutes.js")(app);
-require("./app/routing/htmlRoutes.js")(app); // This part does not work....
+require("./app/routing/htmlRoutes.js")(app); 
 
 app.listen(PORT, function() {
     console.log("App is listening on PORT: " + PORT);

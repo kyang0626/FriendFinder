@@ -39,7 +39,7 @@ module.exports = function(app) {
         console.log("---------------------------");
 
         for (var i = 0; i < friends.length; i++) {
-            console.log(friend[i].name);
+            console.log(friends[i].name);
             totalDifference = 0;
             console.log("Total difference: " + totalDifference);
             console.log("Best match friend difference: " + bestMatch.friendDifference);
@@ -50,8 +50,8 @@ module.exports = function(app) {
             console.log("--------------------------------" + totalDifference);
 
             if (totalDifference <= bestMatch.friendDifference) {
-                bestMatchName.name = friends[i].name;
-                bestMatchPhoto.photo = friends[i].photo;
+                bestMatch.name = friends[i].name;
+                bestMatch.photo = friends[i].photo;
                 bestMatch.friendDifference = totalDifference;
 
             }

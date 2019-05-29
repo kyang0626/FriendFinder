@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Frindly</title>
+     <!-- JQuery-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,8 +15,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/survey.css">
-    <!-- JQuery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+   
 
 
 </head>
@@ -159,7 +160,7 @@
                     </div>
                     <div class="modal-body">
                         <h2 id="bestMatch"></h2>
-                        <img id="bestMatchPhoto" src="#">
+                        <img id="match-img" src="#" style="width: 200px; height: 200px;">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -170,62 +171,70 @@
 
 
     </main>
-
-    <!-- JavaScript Source-->
-    <script type="text/javascript">
-
-        // Get the User's Info.....
-        $("#submit-btn").on("click", function () {
-            event.preventDefault();
-            console.log("It Works!!!");
-        })
-
-        // Validate the form....
-        var validateForm = true;
-        if ($("#name").val() === "" || $("#photo").val() === "") {
-            valid = false;
-        } else if ($("#q1").val() === "empty" || $("#q2").val() === "empty" || $("#q3").val() === "empty" || $("#q4").val() === "empty" || $("#q5").val() === "empty" || $("#q6").val() === "empty" || $("#q7").val() === "empty" || $("#q8").val() === "empty" || $("#q9").val() === "empty" || $("#q10").val() === "empty") {
-            valid = false;
-        }
-
-        // Make sure all the fields are filled
-        if (validateForm === true) {
-            // User Info ...
-            var friendData = {
-                name: $("#name").val(),
-                photo: $("#photo").val(),
-                scores: [
-                    $("#q1").val(),
-                    $("#q2").val(),
-                    $("#q3").val(),
-                    $("#q4").val(),
-                    $("#q5").val(),
-                    $("#q6").val(),
-                    $("#q7").val(),
-                    $("#q8").val(),
-                    $("#q9").val(),
-                    $("#q10").val()
-                ]
-            };
-
-            var userURL = window.location.origin;
-            // AJAX post the data to friends API...
-            $.post(userURL + "/api/friends", friendData, function (data) {
-
-                $("#match-name").text(data.name);
-                $("#match-img").attr("src", data.photo);
-                // show the modal
-                $("#modal-match").modal("toggle");
-            });
-        } else {
-            // Alert user if one or more input is not filled....
-            alert("Please fill out all the input fields before submitting!");
-        }
-
-    </script>
+    
+<!-- JavaScript Source-->
+<script type="text/javascript">
+  
+    // Get the User's Info.....
+    $("#submit-btn").on("click", function () {
+        event.preventDefault();
+        console.log("It Works!!!");
 
 
+    // Validate the form....
+    var validateForm = true;
+    if ($("#name").val() === "" || $("#photo").val() === "") {
+        valid = false;
+    } else if ($("#q1").val() === "empty" || $("#q2").val() === "empty" || $("#q3").val() === "empty" || $("#q4").val() === "empty" || $("#q5").val() === "empty" || $("#q6").val() === "empty" || $("#q7").val() === "empty" || $("#q8").val() === "empty" || $("#q9").val() === "empty" || $("#q10").val() === "empty") {
+        valid = false;
+    }
 
+    // Make sure all the fields are filled
+    if (validateForm === true) {
+        // User Info ...
+        var friendData = {
+            name: $("#name").val(),
+            photo: $("#photo").val(),
+            scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+            ]
+        };
+
+        var userURL = window.location.origin;
+        // AJAX post the data to friends API...
+        $.post(userURL + "/api/friends", friendData, function (data) {
+
+            $("#match-name").text(data.name);
+            $("#match-img").attr("src", data.photo);
+            // show the modal
+          
+            $("#modal-match").modal("show");
+     
+            
+        });
+    } else {
+        // Alert user if one or more input is not filled....
+        alert("Please fill out all the input fields before submitting!");
+    }
+});
+
+
+</script>
+    
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
